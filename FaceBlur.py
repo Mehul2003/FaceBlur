@@ -49,11 +49,11 @@ def detect(image):
 
     return image
 
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
 while(True):
-    ret, frame = cap.read()
-    frame = cv2.flip(frame, 1)
-    # frame = cv2.imread('assets/1.png', cv2.IMREAD_COLOR);
+    # ret, frame = cap.read()
+    # frame = cv2.flip(frame, 1)
+    frame = cv2.imread('assets/1.png', cv2.IMREAD_COLOR);
 
     frame = detect(frame)
 
