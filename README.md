@@ -1,6 +1,6 @@
 # FaceDetection
 
 
-# Face Detection
+## Face Detection
 
-# Face Blurring
+## Face Blurring
