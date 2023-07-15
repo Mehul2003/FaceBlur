@@ -40,27 +40,28 @@ def scramble(image, row, col, h, w):
 
 def detect(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
     faces = face_cascade.detectMultiScale(gray, 1.1, 4)
-
     for (x, y, w, h) in faces:
         image = blur(frame, x, y, w, h)
-
-
     return image
 
-# cap = cv2.VideoCapture(0)
-while(True):
-    # ret, frame = cap.read()
-    # frame = cv2.flip(frame, 1)
-    frame = cv2.imread('assets/1.png', cv2.IMREAD_COLOR);
+choice = input("Select 1 for Live or 2 for Video: ")
 
-    frame = detect(frame)
-
-    cv2.imshow('Video', frame)
-
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cap.release()
+if choice == '1':
+    cap = cv2.VideoCapture(0)
+    while(True):
+        ret, frame = cap.read()
+        frame = cv2.flip(frame, 1)
+        frame = detect(frame)
+        cv2.imshow('Video', frame)
+        if cv2.waitKey(1) == ord('q'):
+            break
+    cap.release()
+else:
+    while(True):
+        frame = cv2.imread('assets/1.png', cv2.IMREAD_COLOR);
+        frame = detect(frame)
+        cv2.imshow('Video', frame)
+        if cv2.waitKey(1) == ord('q'):
+            break
 cv2.destroyAllWindows()
