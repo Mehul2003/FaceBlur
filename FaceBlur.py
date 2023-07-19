@@ -2,8 +2,6 @@ import cv2
 import random
 
 face_cascade = cv2.CascadeClassifier('../opencv-master/data/haarcascades/haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('../opencv-master/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml')
-smile_cascade = cv2.CascadeClassifier('../opencv-master/data/haarcascades/haarcascade_smile.xml')
 
 
 def blur(image, x_val, y_val, width, height):
