@@ -47,19 +47,14 @@ choice = input("Select 1 for Live or 2 for Video: ")
 
 if choice == '1':
     cap = cv2.VideoCapture(0)
-    while(True):
-        ret, frame = cap.read()
-        frame = cv2.flip(frame, 1)
-        frame = detect(frame)
-        cv2.imshow('Video', frame)
-        if cv2.waitKey(1) == ord('q'):
-            break
-    cap.release()
 else:
-    while(True):
-        frame = cv2.imread('assets/1.png', cv2.IMREAD_COLOR);
-        frame = detect(frame)
-        cv2.imshow('Video', frame)
-        if cv2.waitKey(1) == ord('q'):
-            break
+    cap = cv2.VideoCapture('assets/SiliconValleyInterviewLowRes.mov')
+
+while(True):
+    ret, frame = cap.read()
+    frame = cv2.flip(frame, 1)
+    frame = detect(frame)
+    cv2.imshow('Video', frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
 cv2.destroyAllWindows()
